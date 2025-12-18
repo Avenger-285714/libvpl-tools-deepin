@@ -1,15 +1,35 @@
-Source: template-repository
-Section: unknown
+Source: libvpl-tools
+Section: graphics
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Timo Aaltonen <tjaalton@debian.org>
+Build-Depends: debhelper-compat (= 13),
+ cmake,
+ pkgconf,
+ libdrm-dev,
+ libva-dev,
+ libvpl-dev (>= 1:2.15.0),
+ libx11-dev,
+ libx11-xcb-dev,
+ libxcb-present-dev,
+ libxcb-dri3-dev,
+ libwayland-dev,
+ wayland-protocols,
+Standards-Version: 4.7.0
+Homepage: https://github.com/intel/libvpl-tools
+Vcs-Browser: https://salsa.debian.org/debian/libvpl-tools
+Vcs-Git: https://salsa.debian.org/debian/libvpl-tools.git
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
+Package: libvpl-tools
+Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Conflicts: onevpl-tools
+Provides: onevpl-tools
+Replaces: onevpl-tools
+Description: Intel Video Processing Library -- command line tools
+ Intel Video Processing Library (Intel VPL) provides access to hardware
+ accelerated video decode, encode, and processing capabilities on Intel
+ GPUs to support AI visual inference, media delivery, cloud gaming, and virtual
+ desktop infrastructure use cases.
+ .
+ This package includes the command line tools.
